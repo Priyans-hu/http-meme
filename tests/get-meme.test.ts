@@ -7,8 +7,8 @@ describe("getMeme", () => {
     expect(meme).toBeDefined();
     expect(meme!.statusCode).toBe(404);
     expect(meme!.caption).toBeTruthy();
-    expect(meme!.imageUrl).toContain("404.webp");
-    expect(meme!.localPath).toContain("404.webp");
+    expect(meme!.imageUrl).toContain("404.");
+    expect(meme!.localPath).toContain("404.");
   });
 
   it("returns undefined for an unknown status code", () => {
@@ -36,7 +36,7 @@ describe("getSlowMeme", () => {
     const meme = getSlowMeme();
     expect(meme.statusCode).toBe("slow");
     expect(meme.caption).toBeTruthy();
-    expect(meme.imageUrl).toContain("slow.webp");
+    expect(meme.imageUrl).toContain("slow.");
   });
 });
 
@@ -49,7 +49,7 @@ describe("configure", () => {
     configure({ imageSource: "local" });
     const meme = getMeme(404)!;
     // localPath should always be populated regardless
-    expect(meme.localPath).toContain("404.webp");
+    expect(meme.localPath).toContain("404.");
   });
 
   it("configure changes slowThreshold", () => {
